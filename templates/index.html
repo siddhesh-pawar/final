@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1>Food & Drink Database</h1>
+    
+    <h2>Drinks</h2>
+    {% if drinks %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Glass Type</th>
+                <th>Instructions</th>
+                <th>Ingredients</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for drink in drinks %}
+            <tr>
+                <td>{{ drink.name }}</td>
+                <td>{{ drink.category }}</td>
+                <td>{{ drink.glass }}</td>
+                <td>{{ drink.instructions }}</td>
+                <td>{{ drink.ingredients }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No drinks in the database yet.</p>
+    {% endif %}
+
+    <h2>Meals</h2>
+    {% if meals %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Area</th>
+                <th>Instructions</th>
+                <th>Ingredients</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for meal in meals %}
+            <tr>
+                <td>{{ meal.name }}</td>
+                <td>{{ meal.category }}</td>
+                <td>{{ meal.area }}</td>
+                <td>{{ meal.instructions }}</td>
+                <td>{{ meal.ingredients }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No meals in the database yet.</p>
+    {% endif %}
+</div>
+{% endblock %}
